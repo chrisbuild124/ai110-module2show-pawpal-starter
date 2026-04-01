@@ -32,6 +32,26 @@ source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
+## Testing PawPal+
+
+Run the test suite from the project root:
+
+```bash
+python -m pytest
+```
+
+The suite covers 10 tests across three areas:
+
+- **Core behavior** — marking a task complete flips its status; adding a task to a pet increases the task count
+- **Sorting** — tasks are returned in chronological order by `preferred_time`; tasks with no time set fall to the end
+- **Recurrence** — completing a `"daily"` task creates a new one due tomorrow; `"once"` tasks return nothing; the new task lands on the correct pet
+- **Conflict detection** — overlapping time windows are flagged; adjacent tasks (back-to-back) are not; tasks with no time set never cause false warnings
+
+**Confidence level: ★★★★☆**
+The core scheduling logic and all new features are well covered. The remaining gap is end-to-end UI testing — the Streamlit layer is not tested, so edge cases around user input (empty forms, duplicate pet names) are untested.
+
+---
+
 ## Smarter Scheduling
 
 Beyond basic priority sorting, the scheduler includes three additional features:
