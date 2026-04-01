@@ -7,13 +7,11 @@
 
 **a. Initial design**
 
-- Briefly describe your initial UML design.
-- What classes did you include, and what responsibilities did you assign to each?
+I used four classes: `Owner`, `Pet`, `Task`, and `Scheduler`. `Owner` tracks who the user is and how much time they have. `Pet` holds the animal's info and its list of tasks. `Task` stores what needs to be done, how long it takes, and its priority. `Scheduler` is the logic layer — it takes the owner's tasks and time budget and builds a daily plan.
 
 **b. Design changes**
 
-- Did your design change during implementation?
-- If yes, describe at least one change and why you made it.
+Yes. After reviewing the skeleton I realized `Task` had no way to know which pet it belonged to. Once the scheduler flattens all tasks into one list, that context is lost. I added a `pet_name` field to `Task` so `Pet.add_task()` can stamp the pet's name on each task — that way the scheduler can still say "Mochi's morning walk" when it explains the plan.
 
 ---
 
