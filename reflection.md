@@ -19,13 +19,11 @@ Yes. After reviewing the skeleton I realized `Task` had no way to know which pet
 
 **a. Constraints and priorities**
 
-- What constraints does your scheduler consider (for example: time, priority, preferences)?
-- How did you decide which constraints mattered most?
+The scheduler considers time budget, task priority, and duration. It sorts high-to-low priority with duration as a tiebreaker so shorter equal-priority tasks go first. Time and priority felt like the constraints that matter most to a real owner — you can't do a 30-minute walk if you only have 20 minutes, and medication should always beat optional activities.
 
 **b. Tradeoffs**
 
-- Describe one tradeoff your scheduler makes.
-- Why is that tradeoff reasonable for this scenario?
+The scheduler is greedy — it picks tasks in order and never goes back to reconsider. A long high-priority task can eat the budget and knock out several short lower-priority tasks that would have fit together. I kept it this way because the output is easy to explain: the owner can always see exactly why something got skipped.
 
 ---
 
