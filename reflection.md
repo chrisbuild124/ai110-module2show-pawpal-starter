@@ -29,15 +29,21 @@ The scheduler is greedy — it picks tasks in order and never goes back to recon
 
 ## 3. AI Collaboration
 
-**a. How you used AI**
+**a. Most effective Copilot features**
 
-- How did you use AI tools during this project (for example: design brainstorming, debugging, refactoring)?
-- What kinds of prompts or questions were most helpful?
+Agent Mode was the most useful — I could describe what I wanted at a high level and it would implement it across the right files without me having to do it piece by piece. Inline Chat was good for smaller questions like how `timedelta` works or why a sort lambda behaves a certain way. Prompts that referenced the actual file (like `#file:pawpal_system.py`) got way better results than vague ones.
 
-**b. Judgment and verification**
+**b. An AI suggestion I rejected**
 
-- Describe one moment where you did not accept an AI suggestion as-is.
-- How did you evaluate or verify what the AI suggested?
+When I asked Copilot to simplify `detect_conflicts()`, it suggested collapsing the nested loop into a one-liner list comprehension. It worked, but the overlap condition became unreadable — you couldn't tell what it was checking without staring at it. I kept the version with named variables (`a_start`, `a_end`, etc.) because that logic is easy to get wrong and clarity matters more than being clever.
+
+**c. How separate chat sessions helped**
+
+Keeping design, implementation, and testing in separate sessions stopped earlier context from bleeding into later decisions. When I was writing tests I wasn't second-guessing the class structure, and when I was building the UI I wasn't thinking about scheduling logic. It made each phase feel focused.
+
+**d. What I learned as the "lead architect"**
+
+AI is fast but it doesn't know what you actually want — it just tries to match the prompt. The times things went sideways were when I gave vague instructions and accepted the output without reading it. The times things went well were when I reviewed what it produced, asked why, and pushed back when something felt off. The design decisions still had to come from me.
 
 ---
 

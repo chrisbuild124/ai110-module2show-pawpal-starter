@@ -63,6 +63,24 @@ Beyond basic priority sorting, the scheduler includes three additional features:
 
 ---
 
+## 📸 Demo
+
+<a href="image.png" target="_blank"><img src='image.png' title='PawPal App' width='' alt='PawPal App' class='center-block' /></a>
+
+---
+
+## Features
+
+- **Priority-based scheduling** — Tasks are sorted high → medium → low. Ties are broken by duration so shorter tasks go first and more fits in the budget.
+- **Time budget enforcement** — The owner sets available minutes for the day; the scheduler fills that budget and reports what was skipped and why.
+- **Sorting by time of day** — `sort_by_time()` orders tasks by `preferred_time` (HH:MM) so the plan reads chronologically from morning to evening.
+- **Conflict warnings** — `detect_conflicts()` checks every pair of scheduled tasks for overlapping time windows and surfaces warnings in the UI — no crash, just a clear heads-up.
+- **Daily and weekly recurrence** — `complete_task()` marks a task done and automatically creates the next occurrence using Python's `timedelta` (`+1 day` for daily, `+7 days` for weekly).
+- **Task filtering** — `filter_tasks()` queries tasks by completion status, pet name, or both — useful for showing only pending items or one pet's workload.
+- **Multi-pet support** — Multiple pets can be registered under one owner; the scheduler pulls tasks across all of them into a single daily plan.
+
+---
+
 ### Suggested workflow
 
 1. Read the scenario carefully and identify requirements and edge cases.
