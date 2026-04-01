@@ -51,13 +51,11 @@ AI is fast but it doesn't know what you actually want — it just tries to match
 
 **a. What you tested**
 
-- What behaviors did you test?
-- Why were these tests important?
+I tested task completion, pet task counts, sort order, recurrence logic, and conflict detection. The recurrence and conflict tests mattered most — those are the features most likely to break quietly without a clear error message.
 
 **b. Confidence**
 
-- How confident are you that your scheduler works correctly?
-- What edge cases would you test next if you had more time?
+Pretty confident in the backend logic — 10/10 tests pass and the edge cases (adjacent tasks, tasks with no time, `"once"` frequency) are all covered. Less confident in the UI side since there are no automated tests for the Streamlit layer. Things like empty form submissions or duplicate pet names could still cause weird behavior.
 
 ---
 
@@ -65,12 +63,12 @@ AI is fast but it doesn't know what you actually want — it just tries to match
 
 **a. What went well**
 
-- What part of this project are you most satisfied with?
+The class structure held up well through the whole build. Starting with a clear UML meant I rarely had to go back and rethink how the pieces connected — I just had to fill in the logic.
 
 **b. What you would improve**
 
-- If you had another iteration, what would you improve or redesign?
+I'd add a `required` flag to `Task` so things like medication can never get bumped from the schedule regardless of time constraints. The current greedy approach can technically skip a high-priority task if something else fills the budget first.
 
 **c. Key takeaway**
 
-- What is one important thing you learned about designing systems or working with AI on this project?
+AI is a good builder but a bad designer. It can implement almost anything you describe, but it won't tell you when your design is wrong — that part is still on you.
