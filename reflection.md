@@ -1,6 +1,9 @@
 # PawPal+ Project Reflection
 
 ## 1. System Design
+1. Keep a journal of all the tasks for the pet. 
+2. Rank each task by priority, time amount, etc.
+3. Provide plans to the user for the user to do. 
 
 **a. Initial design**
 
